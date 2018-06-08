@@ -32,7 +32,7 @@ func main() {
 	log.Level, _ = logrus.ParseLevel(*logLevel)
 
 	if *delete && *filter == "" {
-		log.Fatalf("you have to set a -regexp when using -delete")
+		log.Fatalf("you have to set a -filter when using -delete")
 	}
 
 	r := regexp.MustCompile(*filter)
