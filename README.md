@@ -20,6 +20,12 @@ a Go application to remove images from a remote Docker Registry
 - delete: when selected, will delete the manifest (the image) from the registry.
 
 ## status
+
+### 20180608-2
+Turn out the digest is like `sha256:b618c166f0b066dd9bba7...` while you only need the hash to delete the image (`b618c166f0b066dd9bba7...`)
+After code update, I have a 202 from the registry... but the image is in fact never deleted (at least on Google GCR)
+  
+### 20180608-1
 As of now this tool is working to list images from a Google registry.
 It does not work to remove images. The error is :
 ```

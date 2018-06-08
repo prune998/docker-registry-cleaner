@@ -2,7 +2,9 @@ package main
 
 import (
 	"regexp"
+	"strings"
 
+	digest "github.com/opencontainers/go-digest"
 	"github.com/prune998/docker-registry-client/registry"
 	"github.com/sirupsen/logrus"
 
@@ -62,20 +64,30 @@ func main() {
 			fullRepo := repo + ":" + image
 
 			if r.MatchString(fullRepo) {
-				digest, err := hub.ManifestDigest(repo, image)
+				// get the image digest and split it to only keep the hash
+				// and drop the encoding
+				// FYI a digest is like sha256:b618c166f0b066dd9bba7
+				imageDigest, err := hub.ManifestDigest(repo, image)
+				digestParts := strings.Split(string(imageDigest), ":")
+				if len(digestParts) != 2 {
+					log.Errorf("image digest error: %v", imageDigest)
+					break
+				}
 
 				if *delete {
-					err = hub.DeleteManifest(repo, digest)
+					err = hub.DeleteManifest(repo, digest.Digest(digestParts[1]))
 					if err != nil {
-						log.Fatalf("error deleting %v: %v", digest, err)
+						log.Fatalf("error deleting %v: %v", imageDigest, err)
 					}
 				}
+
+				// do a pretty json log
 				log.WithFields(logrus.Fields{
 					"repository": repo,
 					"image":      image,
 					"delete":     *delete,
 					"fullname":   fullRepo,
-					"digest":     digest,
+					"digest":     imageDigest,
 				}).Printf("image found")
 			}
 		}
