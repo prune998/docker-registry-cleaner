@@ -3,6 +3,7 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:19b4933d576d39c57b368acf4db2ad9a67361a97dec1c78d032205b3f5eeeebb"
   name = "github.com/docker/distribution"
   packages = [
     ".",
@@ -10,58 +11,78 @@
     "manifest",
     "manifest/schema1",
     "manifest/schema2",
-    "reference"
+    "reference",
   ]
+  pruneopts = "UT"
   revision = "f0cc927784781fa395c06317c58dea2841ece3a9"
 
 [[projects]]
   branch = "master"
+  digest = "1:4841e14252a2cecf11840bd05230412ad469709bbacfc12467e2ce5ad07f339b"
   name = "github.com/docker/libtrust"
   packages = ["."]
+  pruneopts = "UT"
   revision = "aabc10ec26b754e797f9028f4589c5b7bd90dc20"
 
 [[projects]]
+  digest = "1:6221a3a452964b1ff30efdc22209b124d54d04373e5993264d3fa9b13da0659d"
   name = "github.com/namsral/flag"
   packages = ["."]
+  pruneopts = "UT"
   revision = "71ceffbeb0ba60fccc853971bb3ed4d7d90bfd04"
   version = "v1.7.4-pre"
 
 [[projects]]
+  digest = "1:ee4d4af67d93cc7644157882329023ce9a7bcfce956a079069a9405521c7cc8d"
   name = "github.com/opencontainers/go-digest"
   packages = ["."]
+  pruneopts = "UT"
   revision = "279bed98673dd5bef374d3b6e4b09e2af76183bf"
   version = "v1.0.0-rc1"
 
 [[projects]]
   branch = "master"
+  digest = "1:5bea152f731113d65b7db73c2c7a1bfb82551466598bd85db3f1a34bb3acfcc4"
   name = "github.com/prune998/docker-registry-client"
   packages = ["registry"]
-  revision = "109d3093d190fc87de77bfa1cef8921567c38172"
+  pruneopts = "UT"
+  revision = "c9ecd7e020fb9b1de0b2aee513c573dcc80e1917"
 
 [[projects]]
+  digest = "1:9e9193aa51197513b3abcb108970d831fbcf40ef96aa845c4f03276e1fa316d2"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
+  pruneopts = "UT"
   revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
   version = "v1.0.5"
 
 [[projects]]
   branch = "master"
+  digest = "1:3f3a05ae0b95893d90b9b3b5afdb79a9b3d96e4e36e099d841ae602e4aca0da8"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
+  pruneopts = "UT"
   revision = "5ba7f63082460102a45837dbd1827e10f9479ac0"
 
 [[projects]]
   branch = "master"
+  digest = "1:8fbfc6ea1a8a078697633be97f07dd83a83d32a96959d42195464c13c25be374"
   name = "golang.org/x/sys"
   packages = [
     "unix",
-    "windows"
+    "windows",
   ]
+  pruneopts = "UT"
   revision = "c11f84a56e43e20a78cee75a7c034031ecf57d1f"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "122200ded041558323dab20aa8a09c636557ae80144596f676548ec3709c8a6e"
+  input-imports = [
+    "github.com/namsral/flag",
+    "github.com/opencontainers/go-digest",
+    "github.com/prune998/docker-registry-client/registry",
+    "github.com/sirupsen/logrus",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

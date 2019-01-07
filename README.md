@@ -17,7 +17,8 @@ a Go application to remove images from a remote Docker Registry
 - logLevel: one of debug, info, warning, error. When using `debug` you will also get the HTTP calls to the Registry.
 - filter: a RegExp to filter which images to list/delete. Leave empty to list/delete all images.
   
-- delete: when selected, will delete the manifest (the image) from the registry.
+- delete: when set, will delete the manifest (the image) from the registry.
+- check : when set, search for the image in the repository and exit with 0 (found) or 1 (not found)
 
 ## status
 
