@@ -49,16 +49,16 @@ func main() {
 	if *check {
 		tags, err := hub.Tags(repoMatch[0])
 		if err != nil {
-			log.Errorf("Listing image tags error, %v", err)
+			log.Errorf("check: Listing image tags error, %v", err)
 			os.Exit(1)
 		}
 		for _, value := range tags {
 			if value == repoMatch[1] {
-				log.Debugf("image %s found", *filter)
+				log.Debugf("check: image %s found", *filter)
 				os.Exit(0)
 			}
 		}
-		log.Debugf("image %s not found", *filter)
+		log.Debugf("check: image %s not found", *filter)
 		os.Exit(1)
 	}
 

@@ -2,8 +2,7 @@
 
 
 [[projects]]
-  branch = "master"
-  digest = "1:19b4933d576d39c57b368acf4db2ad9a67361a97dec1c78d032205b3f5eeeebb"
+  digest = "1:4165002b6f20cdd11994d0ec9d3265969179ee03415106b95b500ca021e01347"
   name = "github.com/docker/distribution"
   packages = [
     ".",
@@ -14,7 +13,8 @@
     "reference",
   ]
   pruneopts = "UT"
-  revision = "f0cc927784781fa395c06317c58dea2841ece3a9"
+  revision = "2461543d988979529609e8cb6fca9ca190dc48da"
+  version = "v2.7.1"
 
 [[projects]]
   branch = "master"
@@ -23,6 +23,14 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "aabc10ec26b754e797f9028f4589c5b7bd90dc20"
+
+[[projects]]
+  digest = "1:31e761d97c76151dde79e9d28964a812c46efc5baee4085b86f68f0c654450de"
+  name = "github.com/konsorten/go-windows-terminal-sequences"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
+  version = "v1.0.2"
 
 [[projects]]
   digest = "1:6221a3a452964b1ff30efdc22209b124d54d04373e5993264d3fa9b13da0659d"
@@ -41,39 +49,50 @@
   version = "v1.0.0-rc1"
 
 [[projects]]
+  digest = "1:11db38d694c130c800d0aefb502fb02519e514dc53d9804ce51d1ad25ec27db6"
+  name = "github.com/opencontainers/image-spec"
+  packages = [
+    "specs-go",
+    "specs-go/v1",
+  ]
+  pruneopts = "UT"
+  revision = "d60099175f88c47cd379c4738d158884749ed235"
+  version = "v1.0.1"
+
+[[projects]]
   branch = "master"
-  digest = "1:5bea152f731113d65b7db73c2c7a1bfb82551466598bd85db3f1a34bb3acfcc4"
+  digest = "1:a834432362b038c6dd0d89c07698b240d5c213dcb8790ae34dc23f08961b5968"
   name = "github.com/prune998/docker-registry-client"
   packages = ["registry"]
   pruneopts = "UT"
-  revision = "c9ecd7e020fb9b1de0b2aee513c573dcc80e1917"
+  revision = "78de54b9f017da82f54112f7e3f97c49460d3224"
 
 [[projects]]
-  digest = "1:9e9193aa51197513b3abcb108970d831fbcf40ef96aa845c4f03276e1fa316d2"
+  digest = "1:e4c72127d910a96daf869a44f3dd563b86dbe6931a172863a0e99c5ff04b59e4"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
-  version = "v1.0.5"
+  revision = "dae0fa8d5b0c810a8ab733fbd5510c7cae84eca4"
+  version = "v1.4.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:3f3a05ae0b95893d90b9b3b5afdb79a9b3d96e4e36e099d841ae602e4aca0da8"
+  digest = "1:058e9504b9a79bfe86092974d05bb3298d2aa0c312d266d43148de289a5065d9"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   pruneopts = "UT"
-  revision = "5ba7f63082460102a45837dbd1827e10f9479ac0"
+  revision = "b7391e95e576cacdcdd422573063bc057239113d"
 
 [[projects]]
   branch = "master"
-  digest = "1:8fbfc6ea1a8a078697633be97f07dd83a83d32a96959d42195464c13c25be374"
+  digest = "1:012ffea19e0c7f3bf69652ba71b42c8ffa9929ad53f8a1d50534b279cfd7a34f"
   name = "golang.org/x/sys"
   packages = [
     "unix",
     "windows",
   ]
   pruneopts = "UT"
-  revision = "c11f84a56e43e20a78cee75a7c034031ecf57d1f"
+  revision = "f7bb7a8bee54210937e93ec56d007d892c1f0580"
 
 [solve-meta]
   analyzer-name = "dep"
