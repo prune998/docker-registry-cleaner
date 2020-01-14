@@ -110,12 +110,6 @@ func main() {
 			// and drop the encoding
 			// FYI a digest is like sha256:b618c166f0b066dd9bba7
 			imageDigest, err := hub.ManifestDigest(repo, tag)
-			log.Infof("digest %s for tag %s", imageDigest, tag)
-			// digestParts := strings.Split(string(imageDigest), ":")
-			// if len(digestParts) != 2 {
-			// 	log.Errorf("image digest error: %v", imageDigest)
-			// 	break
-			// }
 
 			if *delete {
 				// delete the tag first
@@ -147,6 +141,7 @@ func main() {
 			images, err := hub.Images(repo)
 			if err != nil {
 				log.Debugf("error getting image list for repo %d", repo)
+				continue
 			}
 			for _, imageDigestStr := range images {
 				log.Debugf("deleting untagged image %v", imageDigestStr)
