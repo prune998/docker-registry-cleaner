@@ -20,11 +20,36 @@ a Go application to remove images from a remote Docker Registry
   - Google: get your token password with `gcloud auth print-access-token`
 - logLevel: one of debug, info, warning, error. When using `debug` you will also get the HTTP calls to the Registry.
 - filter: a RegExp to filter which images to list/delete. Leave empty to list/delete all images.
-  
 - delete: when set, will delete the manifest (the image) from the registry.
-- check : when set, search for the image in the repository and exit with 0 (found) or 1 (not found)
+- check: when set, search for the image in the repository and exit with 0 (found) or 1 (not found)
+- deleteUntagged: delete images from a repository if they have no tags. Only work when the filter contains `.*` as tag version
+
+### Use Case
+
+1. Delete a tagged image: use a filter like `project/image:v1.2.3`
+1. Delete all images that have a tag: use a filter like `project/image:.*`
+1. Delete all images that have a tag AND the others without tags: use a filter like `project/image:.*` AND `-deleteUntagged` option
+
+### Manual test
+  As a reminder, you can also do all this by hand using `curl`. If you're on Google Container Registry, you can do :
+
+  ```bash
+  curl -ks -u "oauth2accesstoken:$(gcloud auth print-access-token)" https://us.gcr.io/v2/project/project-name/tags/list | jq '.'
+  ```
+
+## Build
+
+You need Go v1.13 or newer to build. 
+
+```bash
+go build -mod vendor
+```
 
 ## status
+
+### 20200116-1
+It seems the SHA256 part of the manifest is needed, at least for Google Container registry...No error is returned but it does nothing if sha256 is not there...
+Also, when deletting tags, we delete the image. This will silentely fail if there are other tags that are not deleted. I introduced a new option `deleteUntagged` so it will also remove images without tags when deleting `.*`.
 
 ### 20180608-2
 
