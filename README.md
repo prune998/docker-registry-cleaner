@@ -39,13 +39,17 @@ a Go application to remove images from a remote Docker Registry
 
 ## Build
 
-You need Go v1.13 or newer to build. 
+You need Go v1.19 or newer to build. 
 
 ```bash
-go build -mod vendor
+go build 
 ```
 
 ## status
+
+### 20221129-1
+
+Removed vendors, updated to run with Go 1.19
 
 ### 20200116-1
 It seems the SHA256 part of the manifest is needed, at least for Google Container registry...No error is returned but it does nothing if sha256 is not there...
